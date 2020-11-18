@@ -1,10 +1,12 @@
- import faker form 'faker'
+const faker = require("faker");
 
-let products = ''
+let products = "";
 
-for(let i = 0; i < 3; i++) {
-  const name = faker.commerce.productName()
-  products += `<div>${name}</div>`
+for (let i = 0; i < 5; i++) {
+  const name = faker.commerce.productName();
+  products += `<div>${name}</div>`;
 }
 
-console.log(products)
+document.querySelector("#products").innerHTML = products;
+
+console.log(products);
