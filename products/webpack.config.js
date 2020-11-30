@@ -12,6 +12,7 @@ module.exports = {
       filename: "remoteEntry.js",
       exposes: {
         "./ProductsIndex": "./src/index",
+        "./ProductsSplitOne": "./split-one/index",
       },
     }),
     new HTMLWebpackPlugin({
