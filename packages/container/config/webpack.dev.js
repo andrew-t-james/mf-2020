@@ -8,20 +8,19 @@ const { dependencies } = require("../package.json");
 const devConfig = {
   mode: "development",
   devServer: {
-    port: 8081,
+    port: 8080,
     historyApiFallback: {
       index: "/index.html",
     },
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "marketing",
-      filename: "remoteEntry.js",
-      exposes: {
-        "./MarketingApp": "./src/bootstrap",
+      name: "container",
+      remotes: {
+        marketing: "marketing@http://localhost:8081/remoteEntry.js",
       },
       // shared: ["react", "react-dom"],
-      shared: dependencies, // by using shared we drop from 3.5Mb to 2.3Mb in development and even better in production mode
+      shared: dependencies,
     }),
     new HTMLWebpackPlugin({
       template: "./public/index.html",
