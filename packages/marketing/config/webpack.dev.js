@@ -1,5 +1,4 @@
 const { merge } = require("webpack-merge");
-const HTMLWebpackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const commonConfig = require("./webpack.common");
 
@@ -22,9 +21,6 @@ const devConfig = {
       },
       // shared: ["react", "react-dom"],
       shared: dependencies, // by using shared we drop from 3.5Mb to 2.3Mb in development and even better in production mode
-    }),
-    new HTMLWebpackPlugin({
-      template: "./public/index.html",
     }),
   ],
 };
